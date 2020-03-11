@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core"   
+      xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+
+<head>
+<meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+<title>create marque</title>
+</head>
+<body style="background-color:black;">
+<div class="navbar sticky-top navbar-dark" style="background-color:black; border-bottom-style: solid; border-color:#d6faff;">
+  <div class="navbar-brand" href="/JSFex2/Accueil.xhtml" style="color:white;">
+    JSF Exemple
+  </div>
+  <h:outputLink value="pageLogin.xhtml" style="color:white;">Se déconnecter</h:outputLink>
+</div>
+<div class="container-fuild">
+<div class="row">
+<div class="col-lg-3" style="padding-top:6px;">
+<div style="background-color:#50ecfa; border-radius:50px; text-align:center; color:black; margin-left:14px;"><h4>Menu</h4></div>
+<div style="border-bottom-style:solid;border-bottom-color:#50ecfa;margin-left:14px;">
+<h:outputLink value="Accueil.xhtml" style="color:white;">Accueil</h:outputLink>
+<br/>
+<h:outputLink value="createProduit.xhtml" style="color:white;">Nouveau produit</h:outputLink>
+<br/>
+<h:outputLink value="listeProduit.xhtml" style="color:white;">Liste des produits</h:outputLink>
+<br/>
+<h:outputLink value="createMarque.xhtml" style="color:white;">Nouvelle marque</h:outputLink>
+<br/>
+<h:outputLink value="listeMarque.xhtml" style="color:white;">Liste des marques</h:outputLink>
+<br/>
+<br/>
+</div>
+</div>
+<div class="col-lg-6">
+ <div style="background-color: #d6faff; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; ">       
+<h1 style="text-align:center;">Ajouter un produit: </h1>
+<br/>
+<h:form style="display:block; margin-right:auto;margin-left:auto;">
+<h:outputLabel style="padding-left:5px;">Nom Produit:</h:outputLabel><br/>
+<h:inputText value="#{gp.produit.nomProduit}" class="form-control"></h:inputText><br/>
+<h:outputLabel style="padding-left:5px;">Description: </h:outputLabel><br/>
+<h:inputTextarea value="#{gp.produit.description}" class="form-control"></h:inputTextarea><br/>
+<h:outputLabel style="padding-left:5px;">Prix: </h:outputLabel><br/>
+<h:inputText value="#{gp.produit.prix}" class="form-control"></h:inputText><br/>
+<h:outputLabel style="padding-left:5px;">Marque:</h:outputLabel><br/>
+<h:selectOneMenu value="#{gp.marque.idMarque}" class="form-control">
+<f:selectItems value="#{gm.listeMarque()}" var="m" itemLabel="#{m.nomMarque}" itemValue="#{m.idMarque}"></f:selectItems>
+</h:selectOneMenu><br/>
+<h:commandButton value="valider" action="#{gp.ajoutProduit()}" class="btn btn-dark" style="margin-left:10px; margin-top:3px;"></h:commandButton>
+<br/>
+</h:form>
+<br/>
+</div>
+</div>
+<div class="col-lg-3"></div>
+</div>
+</div>
+</body>
+</html>
